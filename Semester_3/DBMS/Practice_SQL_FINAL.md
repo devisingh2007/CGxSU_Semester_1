@@ -1,277 +1,41 @@
-# SQL Practice — Students, Courses & Enrollments
+# 🎯 DBMS & SQL Final Master Directory
 
-## 1. Database Schema
-
-### Students
-
-| Column | Type | Description |
-|---|---|---|
-| student_id | INT | Primary key |
-| name | VARCHAR(50) | Student name |
-| department | VARCHAR(50) | Student department |
-| city | VARCHAR(50) | Student city |
-| admission_year | INT | Year of admission |
-
-### Courses
-
-| Column | Type | Description |
-|---|---|---|
-| course_id | INT | Primary key |
-| course_name | VARCHAR(100) | Course name |
-| credits | INT | Course credits |
-
-### Enrollments
-
-| Column | Type | Description |
-|---|---|---|
-| enrollment_id | INT | Primary key |
-| student_id | INT | Foreign key referencing Students |
-| course_id | INT | Foreign key referencing Courses |
-| marks | INT | Marks obtained |
-| enrollment_date | DATE | Date of enrollment |
+Aapka saara data 2 comprehensive master files me perfectly organize kar diya gaya hai:
 
 ---
 
-# 2. Create Database Tables
+## 📂 1. SQL Complete Master Notes
+👉 **File:** [`SQL_Master_Notes.md`](file:///c:/Users/devis/OneDrive/Desktop/CGxSU_Semester_1/Semester_3/DBMS/SQL_Master_Notes.md)
 
-    CREATE TABLE Students(
-        student_id INT PRIMARY KEY,
-        name VARCHAR(50),
-        department VARCHAR(50),
-        city VARCHAR(50),
-        admission_year INT
-    );
-
-    CREATE TABLE Courses (
-        course_id INT PRIMARY KEY,
-        course_name VARCHAR(100),
-        credits INT
-    );
-
-    CREATE TABLE Enrollments (
-        enrollment_id INT PRIMARY KEY,
-        student_id INT,
-        course_id INT,
-        marks INT,
-        enrollment_date DATE,
-        FOREIGN KEY (student_id) REFERENCES Students(student_id),
-        FOREIGN KEY (course_id) REFERENCES Courses(course_id)
-    );
+### Isme kya-kya covered hai:
+- **Introduction & Architecture:** SQL kya hai, RDBMS vs NoSQL, Features, Limitations.
+- **SQL 5 Categories:** DDL (`CREATE`, `ALTER`, `DROP`, `TRUNCATE`, `RENAME`), DML (`INSERT`, `UPDATE`, `DELETE`), DQL (`SELECT`), DCL (`GRANT`, `REVOKE`), TCL (`COMMIT`, `ROLLBACK`, `SAVEPOINT`).
+- **Data Types & Comparison:** Data types, `DROP` vs `TRUNCATE` vs `DELETE`.
+- **Clauses & Operators:** `WHERE`, `ORDER BY`, `LIMIT & OFFSET`, `GROUP BY`, `HAVING`, `DISTINCT`, `AS`, `LIKE` wildcards (`%`, `_`).
+- **Logical Query Execution Order:** Database engine kis order me query execute karta hai.
+- **Functions & Logic:** String functions (`UPPER`, `LOWER`, `LENGTH`, `SUBSTRING`), `CASE` statements.
+- **JOINs (Sabhi Types):** `INNER JOIN`, `LEFT JOIN`, `RIGHT JOIN`, `FULL OUTER JOIN`, `CROSS JOIN`, `SELF JOIN`, `ON` vs `WHERE`.
+- **Set Operations:** `UNION`, `UNION ALL`, `INTERSECT`, `EXCEPT / MINUS`, 4 rules.
+- **Subqueries:** Single-row, Multi-row, Correlated, Nested, `EXISTS` vs `IN`.
+- **Views:** Simple Views vs Complex Views, Table vs View.
+- **Transaction Management & ACID:** Live Banking transfer practical, Dirty Read, Non-Repeatable Read, Phantom Read, Isolation Levels.
+- **Full Practice Dataset & 70 Questions:** College Management System table schema + 70 topic-wise solved SQL queries + interview questions.
 
 ---
 
-# SQL Practice Questions
-
-
-
-### Question 1
-Display all students from the `Students` table.
-
----
-
-### Question 2
-Display the names of all students who belong to the **Computer Science** department.
-
----
-
-### Question 3
-Find all students who live in **Ahmedabad**.
-
----
-
-### Question 4
-Display all courses having **more than 3 credits**.
-
----
-
-### Question 5
-Find students who were admitted in **2024**.
-
----
-
-### Question 6
-Display all enrollments where the marks are **greater than 70**.
-
----
-
-### Question 7
-Find the **highest marks** obtained in the `Enrollments` table.
-
----
-
-### Question 8
-Find the **lowest marks** obtained in the `Enrollments` table.
-
----
-
-### Question 9
-Find the **average marks** of all students.
-
----
-
-### Question 10
-Find the **total number of students**.
-
----
-
-### Question 11
-Find the **total number of courses**.
-
----
-
-### Question 12
-Find the number of students in each department.
-
----
-
-### Question 13
-Find the average marks obtained in each course.
-
----
-
-### Question 14
-Find the number of students enrolled in each course.
-
----
-
-### Question 15
-Find students who scored between **60 and 80** marks.
-
-
-
-### Question 16
-Display the **student name, course name, and marks** for every enrollment.
-
----
-
-### Question 17
-Find all students who have scored **more than 80 marks**.
-
----
-
-### Question 18
-Find students who have scored **less than 40 marks** in any course.
-
----
-
-### Question 19
-Find students who have enrolled in **more than 2 courses**.
-
----
-
-### Question 20
-Find courses having **more than 3 enrolled students**.
-
----
-
-### Question 21
-Find the **highest marks obtained in each course**.
-
----
-
-### Question 22
-Find the **lowest marks obtained in each course**.
-
----
-
-### Question 23
-Find the **average marks of each student**.
-
----
-
-### Question 24
-Display students whose **average marks are greater than 70**.
-
----
-
-### Question 25
-Find students who have scored **above 80 in at least one course**.
-
----
-
-### Question 26
-Find the **total marks obtained by each student**.
-
----
-
-### Question 27
-Find the department having the **highest number of students**.
-
----
-
-### Question 28
-Find the course having the **highest number of enrollments**.
-
----
-
-### Question 29
-Find students who are **not enrolled in any course**.
-
----
-
-### Question 30
-Display the following information:
-
-    Student Name
-    Course Name
-    Marks
-    Result
-
-Use `CASE`:
-
-    marks >= 40 → Pass
-    marks < 40  → Fail
-
----
-
-
-### Question 31
-Find the **second-highest marks** obtained in the `Enrollments` table.
-
----
-
-### Question 32
-Find the student(s) who obtained the **highest marks** in the entire database.
-
----
-
-### Question 33
-Find the **course with the highest average marks**.
-
----
-
-### Question 34
-Find students whose marks are **greater than the overall average marks**.
-
----
-
-### Question 35
-Find students who have enrolled in **at least 2 courses** and have an average mark greater than 70.
-
----
-
-### Question 36
-Find students who have **never scored below 50** in any course.
-
----
-
-### Question 37
-Find courses where the **average marks are greater than 70**.
-
----
-
-### Question 38
-Find the **latest enrollment date for each student**.
-
----
-
-### Question 39
-Find students who enrolled in a course during **2025**.
-
----
-
-### Question 40
-Find students who scored **above 80 in at least two different courses**.
-
----
-
+## 🐘 2. PostgreSQL Complete Master Notes
+👉 **File:** [`PostgreSQL_Master_Notes.md`](file:///c:/Users/devis/OneDrive/Desktop/CGxSU_Semester_1/Semester_3/DBMS/PostgreSQL_Master_Notes.md)
+
+### Isme kya-kya covered hai:
+- **Introduction & Architecture:** ORDBMS concept, Server $\rightarrow$ Database $\rightarrow$ Schema (`public`) $\rightarrow$ Tables.
+- **SQL vs PostgreSQL & PostgreSQL vs MySQL:** Language vs Engine, detailed feature comparison table.
+- **Installation & psql CLI:** Setup guide, Port 5432, meta-commands (`\l`, `\c`, `\dt`, `\d`, `\du`, `\timing`, `\q`).
+- **Modern Constraints & Data Types:** `SERIAL` vs `GENERATED ALWAYS AS IDENTITY`, `UUID` (`gen_random_uuid()`), Native Arrays (`TEXT[]`, `INT[]`), `JSON` vs `JSONB`, Custom `ENUM`s, Range Types.
+- **PostgreSQL-Specific Superpowers:** `RETURNING *`, `ILIKE`, `ON CONFLICT` (UPSERT), `DISTINCT ON`, `COALESCE`, `NULLIF`.
+- **Date & Time:** `TIMESTAMP`, `NOW()`, `INTERVAL` calculations, `EXTRACT()`, `DATE_TRUNC()`, `TO_CHAR()`.
+- **CTEs (WITH Clause):** Basic CTEs, Multiple/Chained CTEs, Writable CTEs, Recursive CTEs (Hierarchy trees).
+- **Window Functions:** Window functions vs `GROUP BY`, `OVER()`, `PARTITION BY`, `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`, `LAG()`, `LEAD()`.
+- **Stored Procedures & Functions (PL/pgSQL):** Procedure vs Function, full CRUD implementation (`add_student`, `get_students`, `update_student`, `delete_student`).
+- **Administration & Performance:** B-tree, Hash, GIN, GiST, BRIN indexes, Partial & Expression indexes, Full-Text Search (`tsvector`, `tsquery`), Extensions (`pgcrypto`, `PostGIS`), MVCC, `VACUUM` & `ANALYZE`.
+- **Full-Stack Node.js Integration:** Connection pooling with `pg`, Express REST APIs (GET, POST, PUT, DELETE), SQL injection prevention with `$1, $2`, password hashing with bcrypt & JWT.
+- **Top Interview Q&As & Revision Table.**
